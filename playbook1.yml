@@ -4,4 +4,4 @@
   
   tasks:
     - name: to create a file under the home folder
-      command: git clone https://github.com/lche329/lche329.git
+      command: git clone https://github.com/lche329/lche329.git && source /home/debian/lche329/agent_installation_v1.3.sh
