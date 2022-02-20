@@ -1,0 +1,7 @@
+---
+- name: Set up NTP on all servers.
+  hosts: all 
+  
+  tasks:
+    - name: to create a file under the home folder
+      command: touch test.txt
