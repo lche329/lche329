@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Determine OS platform
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
@@ -27,11 +27,11 @@ do
 	COSVER=$(sudo cat /etc/os-release | grep "VERSION_ID" | sed '2,$d' | cut -d '=' -f 2 | cut -d '"' -f 2)
 
 	if [ "${COSVER}" == "8" ] || [ "${COSVER}" -eq 8 ]; then
-		curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15501/download?i_agree_to_tenable_license_agreement=true -o "/tmp/NessusAgent-10.0.1-es8.x86_64.rpm"
-		sudo rpm -ivh /tmp/NessusAgent-10.0.1-es8.x86_64.rpm
+		curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15876/download?i_agree_to_tenable_license_agreement=true -o "/tmp/NessusAgent-10.1.1-es8.x86_64.rpm"
+		sudo rpm -ivh /tmp/NessusAgent-10.1.1-es8.x86_64.rpm
 	elif [ "${COSVER}" == "7" ] || [ "${COSVER}" -eq 7 ]; then
-		curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15500/download?i_agree_to_tenable_license_agreement=true -o "/tmp/NessusAgent-10.0.1-es7.x86_64.rpm"
-		sudo rpm -ivh /tmp/NessusAgent-10.0.1-es7.x86_64.rpm
+		curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15875/download?i_agree_to_tenable_license_agreement=true -o "/tmp/NessusAgent-10.1.1-es7.x86_64.rpm"
+		sudo rpm -ivh /tmp/NessusAgent-10.1.1-es7.x86_64.rpm
 	fi
 	
 	RESULTINSTALLATIONCOS=$?
@@ -56,8 +56,8 @@ do
 	# To install curl instead of wget, which can later be used to get MetaData info.
 	sudo apt -y install curl
 	# Download the NessusAgent
-	curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15507/download?i_agree_to_tenable_license_agreement=true --output "/tmp/NessusAgent-10.0.1-ubuntu1110_amd64.deb"
-	sudo dpkg -i /tmp/NessusAgent-10.0.1-ubuntu1110_amd64.deb
+	curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15882/download?i_agree_to_tenable_license_agreement=true --output "/tmp/NessusAgent-10.1.1-ubuntu1110_amd64.deb"
+	sudo dpkg -i /tmp/NessusAgent-10.1.1-ubuntu1110_amd64.deb
 
 	RESULTINSTALLATIONUBT=$?
 #	sudo touch /tmp/NessusAgentInstallationStatus.txt
@@ -81,8 +81,8 @@ do
 	# To install curl instead of wget, which can later be used to get MetaData info.
 	sudo apt -y install curl
 	# Download the NessusAgent
-	sudo curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15496/download?i_agree_to_tenable_license_agreement=true --output "/tmp/NessusAgent-10.0.1-debian6_amd64.deb"
-	sudo dpkg -i /tmp/NessusAgent-10.0.1-debian6_amd64.deb
+	sudo curl https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/15871/download?i_agree_to_tenable_license_agreement=true --output "/tmp/NessusAgent-10.1.1-debian6_amd64.deb"
+	sudo dpkg -i /tmp/NessusAgent-10.1.1-debian6_amd64.deb
 	
 	RESULTINSTALLATIONDEB=$?
 #	sudo touch /tmp/NessusAgentInstallationStatus.txt
