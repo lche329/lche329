@@ -4,4 +4,4 @@
   
   tasks:
     - name: to create a file under the home folder
-      command: touch test.txt
+      command: git clone https://github.com/lche329/lche329.git
