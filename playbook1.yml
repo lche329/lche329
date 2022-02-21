@@ -1,7 +1,32 @@
 ---
 - name: Set up NTP on all servers.
   hosts: all 
-  
+  become: yes
+ 
   tasks:
-    - name: to create a file under the home folder
-      command: git clone https://github.com/lche329/lche329.git && source /home/debian/lche329/agent_installation_v1.3.sh
+    - name: to install git
+      apt: name=git state=present
+    - name: Delete contents & directory
+      file:
+        state: absent
+        path: /atmp1
+    - name: create a folder
+      file:
+        path: /atmp1
+        state: directory
+    - name: git clone the file
+      command: git clone https://github.com/lche329/lche329.git /atmp1
+    - name: Changing perm of the following bash script
+      file: 
+        path: /atmp1/agent_installation_v1.3.sh
+        state: file
+        mode: 0777
+    - name: fix '/tmp' permissions
+      file:
+        path: /tmp
+        mode: 0777
+        state: directory
+        recurse: yes
+    - name: run the bash script
+      become: yes
+      command: /atmp1/agent_installation_v1.3.sh
