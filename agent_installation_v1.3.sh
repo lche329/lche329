@@ -97,7 +97,7 @@ do
 		exit 0
 	else 
 	    echo "Nessus_Agent_Linking_fails at - $(date)" >> /tmp/NessusAgentLinkingLog.txt
-	    exit 88
+	    exit 0
 	fi
 	
 
