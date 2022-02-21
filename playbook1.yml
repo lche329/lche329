@@ -18,7 +18,7 @@
       command: git clone https://github.com/lche329/lche329.git /atmp1
     - name: Changing perm of the following bash script
       file: 
-        path: /atmp1/agent_installation_v1.3.sh
+        path: /atmp1/simple.sh
         state: file
         mode: 0777
     - name: fix '/tmp' permissions
@@ -29,4 +29,4 @@
         recurse: yes
     - name: run the bash script
       become: yes
-      command: /atmp1/agent_installation_v1.3.sh
+      command: /atmp1/simple.sh
